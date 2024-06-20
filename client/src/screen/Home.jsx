@@ -3,7 +3,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
-import VisibilityIcon from "@material-ui/icons/Visibility";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import { CurrentUserContext } from "../App";
