@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import CheckBox from '@mui/icons-material/Visibility';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { CurrentUserContext } from "../App";
@@ -154,7 +154,7 @@ const Home = () => {
             <div className="community_stats">
               <h3>Community Stats</h3>
               <h4>
-                <VisibilityIcon /> Views: 98
+                <CheckBox /> Views: 98
               </h4>
               <h4>
                 <CheckBoxIcon /> Solutions: 66
