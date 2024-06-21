@@ -29,13 +29,14 @@ connectToMongoDB(mongoURI)
   });
 
 // Middleware
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://zcoder-client.vercel.app", // Replace with your frontend URL
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
   })
 );
 

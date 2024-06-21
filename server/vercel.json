@@ -1,16 +1,47 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "*.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/signUp",
+      "dest": "/routes/SignUp.js"
+    },
+    {
+      "src": "/login",
+      "dest": "/routes/Login.js"
+    },
+    {
+      "src": "/(.*)/edit-profile",
+      "dest": "/routes/EditProfile.js"
+    },
+    {
+      "src": "/home",
+      "dest": "/routes/Profile.js"
+    },
+    {
+      "src": "/getRecentQuestion",
+      "dest": "/routes/FetchRecentQuestions.js"
+    },
+    {
+      "src": "/(.*)/mystack",
+      "dest": "/routes/MyStack.js"
+    },
+    {
+      "src": "/updateQuestion",
+      "dest": "/routes/UpdateQuestion.js"
+    },
+    {
+      "src": "/(.*)/explore",
+      "dest": "/routes/Explore.js"
+    },
+    {
+      "src": "/run-cpp",
+      "dest": "/routes/CodeLive.js"
+    }
+  ]
+}
