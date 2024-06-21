@@ -11,7 +11,7 @@ const ExploreQuestion = () => {
       if (currentUsername) {
         try {
           const response = await fetch(
-            `http://localhost:8000/${currentUsername}/explore`
+            `https://zcoder-api.vercel.app/${currentUsername}/explore`
           );
           if (!response.ok) {
             throw new Error("Network response was not ok");
