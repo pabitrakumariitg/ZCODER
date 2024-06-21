@@ -33,8 +33,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // Define a list of allowed origins
 const allowedOrigins = [
-  'https://zcoder-api.vercel.app/', // Your front-end development server
-  'https://zcoder-client.vercel.app/', // Your production front-end site
+  'https://zcoder-api.vercel.app', // Your front-end development server
+  'https://zcoder-client.vercel.app', // Your production front-end site
 ];
 
 // CORS configuration
