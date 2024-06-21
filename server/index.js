@@ -31,29 +31,7 @@ connectToMongoDB(mongoURI)
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// Define a list of allowed origins
-const allowedOrigins = [
-  'https://zcoder-api.vercel.app', // Your front-end development server
-  'https://zcoder-client.vercel.app', // Your production front-end site
-];
-
-// CORS configuration
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Enable cookies and other credentials in CORS requests
-};
-
-app.use(cors(corsOptions));
+app.use(cors('*'));
 
 // Routes
 app.use("/signUp", SignUpRouter);
