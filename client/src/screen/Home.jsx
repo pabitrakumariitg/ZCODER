@@ -44,7 +44,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/home/${currentUsername}`);
+        const response = await fetch(`https://zcoder-api.vercel.app/${currentUsername}`);
         console.log("Current Username:", currentUsername); // debug
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -82,7 +82,7 @@ const Home = () => {
   useEffect(() => {
     const fetchRecentQuestions = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/getRecentQuestion`);
+        const response = await fetch(`https://zcoder-api.vercel.app/getRecentQuestion`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -18,7 +18,8 @@ const app = express();
 const PORT = 8000;
 
 // MongoDB connection setup
-const mongoURI = "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
+const mongoURI =
+  "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
 connectToMongoDB(mongoURI)
   .then(() => {
     console.log("MongoDB connected");
@@ -27,11 +28,12 @@ connectToMongoDB(mongoURI)
     console.error("MongoDB connection error:", err);
   });
 
-
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://zcoder-client.vercel.app'
+}));
 
 // Routes
 app.use("/signUp", SignUpRouter);
@@ -47,5 +49,5 @@ app.use("/run-cpp", CodeLiveRouter);
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is started at PORT:${PORT}`);
+  console.log(`Server is started at PORT:${PORT}`);
 });

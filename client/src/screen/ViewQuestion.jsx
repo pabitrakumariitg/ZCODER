@@ -24,7 +24,7 @@ const ViewQuestion = () => {
   useEffect(() => {
     const fetchQuestionDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/getRecentQuestion/${questionId}`);
+        const response = await fetch(`https://zcoder-api.vercel.app/${questionId}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -60,7 +60,7 @@ const ViewQuestion = () => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/updateQuestion/${questionId}`, {
+      const response = await fetch(`https://zcoder-api.vercel.app/updateQuestion/${questionId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
