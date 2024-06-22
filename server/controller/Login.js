@@ -1,28 +1,31 @@
 const SignUp = require('../model/SignUp');
-const session = require('express-session');
+const { getUser, setUser } = require('../currentUserContext');
 
 async function handleLogin(req, res) {
-  const { userName, password } = req.body;
-
-  if (!userName || !password) {
+  const body = req.body;
+  if (!body || !body.userName || !body.password) {
     return res.status(400).json({ msg: 'All fields are required' });
   }
 
   try {
-    const user = await SignUp.findOne({ userName });
+    const user = await SignUp.findOne({ userName: body.userName });
 
-    if (!user || user.password !== password) {
+    if (!user) {
       return res.status(401).json({ msg: 'Invalid userName or password' });
     }
 
-    // Store user information in session
-    req.session.currentUser = {
-      username: userName
-    };
+    const passwordMatch = user.password === body.password;
+
+    if (!passwordMatch) {
+      return res.status(401).json({ msg: 'Invalid userName or password' });
+    }
+
+    // Update user in the currentUserContext
+    setUser({ username: body.userName });
 
     return res.status(200).json({
       msg: 'Login successful',
-      userName
+      userName: body.userName,
     });
   } catch (error) {
     console.error('Error during login:', error);
