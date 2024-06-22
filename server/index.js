@@ -32,13 +32,11 @@ connectToMongoDB(mongoURI)
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: ["https://zcoder-client.vercel.app"], 
-    methods: ["GET","POST","PUT","DELETE"],
-    credentials:true
-  })
-);
+app.use(cors({
+  origin: 'https://zcoder-client.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true  // to allow cookies from the client
+}));
 
 // Routes
 app.use("/signUp", SignUpRouter);
