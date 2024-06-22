@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-require('dotenv').config();
 const { connectToMongoDB } = require("./connect");
 
 // Import routers
@@ -16,22 +15,11 @@ const GetExploreRouter = require("./routes/Explore");
 const CodeLiveRouter = require("./routes/CodeLive");
 
 const app = express();
-const PORT = process.env.PORT || 8000;
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-app.use(
-  cors({
-    origin: "https://zcoder-client.vercel.app", // Allow your client app
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  })
-);
+const PORT = 8000;
 
 // MongoDB connection setup
-const mongoURI = process.env.MONGO_URI;
+const mongoURI =
+  "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
 connectToMongoDB(mongoURI)
   .then(() => {
     console.log("MongoDB connected");
@@ -39,6 +27,18 @@ connectToMongoDB(mongoURI)
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
+
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use(
+  cors({
+    origin: "https://zcoder-client.vercel.app", 
+    methods: ["GET","POST","PUT","DELETE"],
+    credentials:true
+  })
+);
 
 // Routes
 app.use("/signUp", SignUpRouter);
@@ -51,12 +51,6 @@ app.use("/:username/mystack", GetMyStackRouter);
 app.use("/updateQuestion", UpdateQuestionRouter);
 app.use("/:username/explore", GetExploreRouter);
 app.use("/run-cpp", CodeLiveRouter);
-
-// Basic error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
 
 // Start the server
 app.listen(PORT, () => {
