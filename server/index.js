@@ -17,6 +17,18 @@ const CodeLiveRouter = require("./routes/CodeLive");
 const app = express();
 const PORT = 8000;
 
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use(
+  cors({
+    origin: ["https://zcoder-client.vercel.app"],
+    methods: "GET,POST,PUT,DELETE",
+    credentials:true
+  })
+);
+
 // MongoDB connection setup
 const mongoURI =
   "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
@@ -28,17 +40,7 @@ connectToMongoDB(mongoURI)
     console.error("MongoDB connection error:", err);
   });
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
-app.use(
-  cors({
-    origin: "https://zcoder-client.vercel.app", // Replace with your frontend URL
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-  })
-);
 
 // Routes
 app.use("/signUp", SignUpRouter);
