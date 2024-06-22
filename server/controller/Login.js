@@ -21,24 +21,26 @@ async function handleLogin(req, res) {
       return res.status(401).json({ msg: 'Invalid userName or password' });
     }
 
-    const currentUser = {
-      username: body.userName
-    };
-
+    // Define the file path
     const filePath = path.join(__dirname, '..', 'currentUser.json');
-    fs.writeFile(filePath, JSON.stringify(currentUser), (err) => {
-      if (err) {
-        console.error('Error writing file:', err);
-        return res.status(500).json({ msg: 'Internal server error1' });
-      }
-      return res.status(200).json({
-        msg: 'Login successful',
-        userName: body.userName
-      });
+
+    // Read and update the currentUser.json file
+    try {
+      const currentUser = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      currentUser.username = body.userName;
+      fs.writeFileSync(filePath, JSON.stringify(currentUser), 'utf8');
+    } catch (err) {
+      console.error('Error reading/writing file:', err);
+      return res.status(500).json({ msg: 'Internal server error' });
+    }
+
+    return res.status(200).json({
+      msg: 'Login successful',
+      userName: body.userName
     });
   } catch (error) {
     console.error('Error during login:', error);
-    return res.status(500).json({ msg: 'Internal server error2' });
+    return res.status(500).json({ msg: 'Internal server error' });
   }
 }
 
