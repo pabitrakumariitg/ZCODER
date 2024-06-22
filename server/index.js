@@ -24,7 +24,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["https://zcoder-client.vercel.app"],
+    origin: "https://zcoder-client.vercel.app", // Allow your client app
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   })
