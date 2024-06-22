@@ -1,42 +1,28 @@
-const fs = require('fs');
-const path = require('path');
 const SignUp = require('../model/SignUp');
+const session = require('express-session');
 
 async function handleLogin(req, res) {
-  const body = req.body;
-  if (!body || !body.userName || !body.password) {
+  const { userName, password } = req.body;
+
+  if (!userName || !password) {
     return res.status(400).json({ msg: 'All fields are required' });
   }
 
   try {
-    const user = await SignUp.findOne({ userName: body.userName });
+    const user = await SignUp.findOne({ userName });
 
-    if (!user) {
+    if (!user || user.password !== password) {
       return res.status(401).json({ msg: 'Invalid userName or password' });
     }
 
-    const passwordMatch = user.password === body.password;
-
-    if (!passwordMatch) {
-      return res.status(401).json({ msg: 'Invalid userName or password' });
-    }
-
-    // Define the file path
-    const filePath = path.join(__dirname, '..', 'currentUser.json');
-
-    // Read and update the currentUser.json file
-    try {
-      const currentUser = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      currentUser.username = body.userName;
-      fs.writeFileSync(filePath, JSON.stringify(currentUser), 'utf8');
-    } catch (err) {
-      console.error('Error reading/writing file:', err);
-      return res.status(500).json({ msg: 'Internal server error' });
-    }
+    // Store user information in session
+    req.session.currentUser = {
+      username: userName
+    };
 
     return res.status(200).json({
       msg: 'Login successful',
-      userName: body.userName
+      userName
     });
   } catch (error) {
     console.error('Error during login:', error);
