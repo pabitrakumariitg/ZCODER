@@ -29,7 +29,7 @@ async function handleLogin(req, res) {
     fs.writeFile(filePath, JSON.stringify(currentUser), (err) => {
       if (err) {
         console.error('Error writing file:', err);
-        return res.status(500).json({ msg: 'Internal server error' });
+        return res.status(500).json({ msg: 'Internal server error 1' });
       }
       return res.status(200).json({
         msg: 'Login successful',
@@ -38,7 +38,7 @@ async function handleLogin(req, res) {
     });
   } catch (error) {
     console.error('Error during login:', error);
-    return res.status(500).json({ msg: 'Internal server error' });
+    return res.status(500).json({ msg: 'Internal server error2' });
   }
 }
 
