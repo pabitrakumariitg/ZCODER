@@ -25,7 +25,7 @@ const ViewQuestion = () => {
     const fetchQuestionDetails = async () => {
       try {
         const response = await fetch(
-          `http://zcoder-api.vercel.app/${questionId}`
+          `https://zcoder-api.vercel.app/${questionId}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -63,7 +63,7 @@ const ViewQuestion = () => {
   const handleSave = async () => {
     try {
       const response = await fetch(
-        `http://zcoder-api.vercel.app/updateQuestion/${questionId}`,
+        `https://zcoder-api.vercel.app/updateQuestion/${questionId}`,
         {
           method: "PUT",
           headers: {

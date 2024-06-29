@@ -37,7 +37,7 @@ const AddQuestion = () => {
 
     try {
       const response = await fetch(
-        `http://zcoder-api.vercel.app/${currentUsername}/uploadQuestion`,
+        `https://zcoder-api.vercel.app/${currentUsername}/uploadQuestion`,
         {
           method: "POST",
           headers: {

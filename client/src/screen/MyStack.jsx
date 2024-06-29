@@ -12,7 +12,7 @@ const MyStack = () => {
   useEffect(() => {
     const fetchStack = async () => {
       try {
-        const response = await fetch(`http://zcoder-api.vercel.app/${currentUsername}/mystack`);
+        const response = await fetch(`https://zcoder-api.vercel.app/${currentUsername}/mystack`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
