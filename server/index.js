@@ -18,7 +18,8 @@ const app = express();
 const PORT = 8000;
 
 //MongoDB connection setup
-const mongoURI = "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
+const mongoURI =
+  "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
 connectToMongoDB(mongoURI)
   .then(() => {
     console.log("MongoDB connected");
@@ -28,16 +29,15 @@ connectToMongoDB(mongoURI)
     process.exit(1); // Exit the process or handle the error as needed
   });
 
-
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // CORS Configuration
 const corsOptions = {
-  origin: 'http://zcoder-client.vercel.app/', // Allow your front-end origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: "https://zcoder-client.vercel.app/", // Allow your front-end origin
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
 
