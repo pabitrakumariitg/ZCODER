@@ -27,40 +27,40 @@ connectToMongoDB(mongoURI)
     console.error("MongoDB connection error:", err);
   });
 
-// // Middleware
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-// // CORS Configuration
-// const corsOptions = {
-//   origin: 'https://zcoder-api.vercel.app', // Allow your front-end origin
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-//   credentials: true,
-// };
+// CORS Configuration
+const corsOptions = {
+  origin: 'https://zcoder-api.vercel.app', // Allow your front-end origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-// // Middleware to simulate getting the current username (for demonstration purposes)
-// app.use((req, res, next) => {
-//   req.currentUsername = "currentUsername"; // Replace with actual logic to get the username
-//   next();
-// });
+// Middleware to simulate getting the current username (for demonstration purposes)
+app.use((req, res, next) => {
+  req.currentUsername = "currentUsername"; // Replace with actual logic to get the username
+  next();
+});
 
 // Routes
 app.use("/",(req,res)=>{
   res.json({message:"HELLO"})
 })
-// app.use("/signUp", SignUpRouter);
-// app.use("/login", LoginRouter);
-// app.use("/:username/edit-profile", EditProfileRouter);
-// app.use("/home", GetProfileRouter);
+app.use("/signUp", SignUpRouter);
+app.use("/login", LoginRouter);
+app.use("/:username/edit-profile", EditProfileRouter);
+app.use("/home", GetProfileRouter);
 // app.use("/", UploadedQuestionRouter);
-// app.use("/getRecentQuestion", GetRecentQuestionRouter);
-// app.use("/:username/mystack", GetMyStackRouter);
-// app.use("/updateQuestion", UpdateQuestionRouter);
-// app.use("/:username/explore", GetExploreRouter);
-// app.use("/run-cpp", CodeLiveRouter);
+app.use("/getRecentQuestion", GetRecentQuestionRouter);
+app.use("/:username/mystack", GetMyStackRouter);
+app.use("/updateQuestion", UpdateQuestionRouter);
+app.use("/:username/explore", GetExploreRouter);
+app.use("/run-cpp", CodeLiveRouter);
 
 // Start the server
 app.listen(PORT, () => {
