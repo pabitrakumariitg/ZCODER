@@ -25,7 +25,9 @@ connectToMongoDB(mongoURI)
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
+    process.exit(1); // Exit the process or handle the error as needed
   });
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
