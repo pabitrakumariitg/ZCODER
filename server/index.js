@@ -53,7 +53,7 @@ app.use((req, res, next) => {
 app.use("/",(req,res)=>{
   res.json({message:"HELLO"})
 })
-app.use("/signUp", SignUpRouter);
+app.use("/signup", SignUpRouter);
 app.use("/login", LoginRouter);
 // app.use("/:username/edit-profile", EditProfileRouter);
 // app.use("/home", GetProfileRouter);
