@@ -48,7 +48,7 @@ const MainContent = () => {
       <Routes>
         <Route path="/:currentUsername/home" element={<Home />} />
         <Route path="/:currentUsername/uploadQuestion" element={<AddQuestion />} />
-        <Route path="/:currentUsername/explore" element={<Explore />} />
+        <Route path="/explore" element={<Explore />} />
         <Route path="/:currentUsername/mystack" element={<MyStack />} />
         <Route path="/:currentUsername/edit-profile" element={<EditDetails />} />
         <Route path="/:currentUsername/viewQuestion/:questionId" element={<ViewQuestion></ViewQuestion>} />
