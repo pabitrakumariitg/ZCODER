@@ -35,7 +35,7 @@ app.use(express.json());
 
 // CORS Configuration
 const corsOptions = {
-  origin: 'https://zcoder-api.vercel.app', // Allow your front-end origin
+  origin: 'http://zcoder-client.vercel.app/', // Allow your front-end origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
