@@ -1,31 +1,31 @@
 const express = require("express");
 const cors = require("cors");
-// const { connectToMongoDB } = require("./connect");
+const { connectToMongoDB } = require("./connect");
 
-// // Import routers
-// const SignUpRouter = require("./routes/SignUp");
-// const LoginRouter = require("./routes/Login");
-// const UploadedQuestionRouter = require("./routes/UploadQuestion");
-// const EditProfileRouter = require("./routes/EditProfile");
-// const GetProfileRouter = require("./routes/Profile");
-// const GetRecentQuestionRouter = require("./routes/FetchRecentQuestions");
-// const GetMyStackRouter = require("./routes/MyStack");
-// const UpdateQuestionRouter = require("./routes/UpdateQuestion");
-// const GetExploreRouter = require("./routes/Explore");
-// const CodeLiveRouter = require("./routes/CodeLive");
+// Import routers
+const SignUpRouter = require("./routes/SignUp");
+const LoginRouter = require("./routes/Login");
+const UploadedQuestionRouter = require("./routes/UploadQuestion");
+const EditProfileRouter = require("./routes/EditProfile");
+const GetProfileRouter = require("./routes/Profile");
+const GetRecentQuestionRouter = require("./routes/FetchRecentQuestions");
+const GetMyStackRouter = require("./routes/MyStack");
+const UpdateQuestionRouter = require("./routes/UpdateQuestion");
+const GetExploreRouter = require("./routes/Explore");
+const CodeLiveRouter = require("./routes/CodeLive");
 
 const app = express();
 const PORT = 8000;
 
-// MongoDB connection setup
-// const mongoURI = "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
-// connectToMongoDB(mongoURI)
-//   .then(() => {
-//     console.log("MongoDB connected");
-//   })
-//   .catch((err) => {
-//     console.error("MongoDB connection error:", err);
-//   });
+MongoDB connection setup
+const mongoURI = "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
+connectToMongoDB(mongoURI)
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 
 // // Middleware
 // app.use(express.urlencoded({ extended: false }));
