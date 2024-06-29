@@ -17,7 +17,7 @@ const CodeLiveRouter = require("./routes/CodeLive");
 const app = express();
 const PORT = 8000;
 
-MongoDB connection setup
+//MongoDB connection setup
 const mongoURI = "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
 connectToMongoDB(mongoURI)
   .then(() => {
