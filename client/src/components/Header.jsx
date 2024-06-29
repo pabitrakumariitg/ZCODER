@@ -25,7 +25,7 @@ const Header = () => {
     <div className={`header ${scrolled ? "scrolled" : ""}`}>
       <h2>ZCODER</h2>
       <nav className="nav-links">
-        <NavLink to={`/${currentUsername}/explore`} activeClassName="active">
+        <NavLink to={`/explore`} activeClassName="active">
           Explore
         </NavLink>
         <NavLink to={`/${currentUsername}/uploadQuestion`} activeClassName="active">
