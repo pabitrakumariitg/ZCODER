@@ -33,7 +33,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch("https://zcoder-api.vercel.app/signup", {
+      const response = await fetch("https://zcoder-api.vercel.app/signUp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
