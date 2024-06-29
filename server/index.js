@@ -48,6 +48,9 @@ app.use((req, res, next) => {
 });
 
 // Routes
+app.use("/",(req,res)=>{
+  res.json({message:"HELLO"})
+})
 app.use("/signUp", SignUpRouter);
 app.use("/login", LoginRouter);
 app.use("/:username/edit-profile", EditProfileRouter);
