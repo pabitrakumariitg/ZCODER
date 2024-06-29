@@ -50,7 +50,7 @@ const EditDetails = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch(`https://zcoder-api.vercel.app/${currentUsername}`);
+        const response = await fetch(`http://zcoder-api.vercel.app/${currentUsername}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -117,7 +117,7 @@ const EditDetails = () => {
     };
 
     try {
-      const response = await fetch(`https://zcoder-api.vercel.app/${currentUsername}/edit-profile`, {
+      const response = await fetch(`http://localhost:8000/${currentUsername}/edit-profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

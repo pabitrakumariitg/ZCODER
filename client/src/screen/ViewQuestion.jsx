@@ -24,7 +24,9 @@ const ViewQuestion = () => {
   useEffect(() => {
     const fetchQuestionDetails = async () => {
       try {
-        const response = await fetch(`https://zcoder-api.vercel.app/${questionId}`);
+        const response = await fetch(
+          `http://zcoder-api.vercel.app/${questionId}`
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -60,13 +62,16 @@ const ViewQuestion = () => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`https://zcoder-api.vercel.app/updateQuestion/${questionId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(questionData),
-      });
+      const response = await fetch(
+        `http://zcoder-api.vercel.app/updateQuestion/${questionId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(questionData),
+        }
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -119,11 +124,17 @@ const ViewQuestion = () => {
         <Button variant="contained" color="success" onClick={handleSave}>
           Save
         </Button>
-        <Button variant="contained" color="error" onClick={() =>  navigate(`/${currentUsername}/home`)}>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={() => navigate(`/${currentUsername}/home`)}
+        >
           Cancel
         </Button>
         <FormControl component="fieldset">
-          <FormLabel component="legend" className="access">Access</FormLabel>
+          <FormLabel component="legend" className="access">
+            Access
+          </FormLabel>
           <RadioGroup
             aria-label="access"
             name="access"

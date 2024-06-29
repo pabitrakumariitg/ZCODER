@@ -1,6 +1,6 @@
-//const jwt = require('jsonwebtoken');
+
 const SignUp = require("../model/SignUp");
-//const JWT_SECRET = process.env.JWT_SECRET;
+
 async function handleSignUp(req, res) {
   const body = req.body;
   if (

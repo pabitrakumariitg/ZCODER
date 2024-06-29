@@ -44,7 +44,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch(`https://zcoder-api.vercel.app/${currentUsername}`);
+        const response = await fetch(`http://zcoder-api.vercel.app/${currentUsername}`);
         console.log("Current Username:", currentUsername); // debug
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -82,7 +82,7 @@ const Home = () => {
   useEffect(() => {
     const fetchRecentQuestions = async () => {
       try {
-        const response = await fetch(`https://zcoder-api.vercel.app/getRecentQuestion`);
+        const response = await fetch(`http://zcoder-api.vercel.app/getRecentQuestion`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -120,13 +120,13 @@ const Home = () => {
   const getProfileUrl = () => {
     switch (clickedRating) {
       case "Codeforces":
-        return `https://codeforces.com/profile/${profileData.codeforcesId}`;
+        return `http://codeforces.com/profile/${profileData.codeforcesId}`;
       case "Leetcode":
-        return `https://leetcode.com/${profileData.leetcodeId}`;
+        return `http://leetcode.com/${profileData.leetcodeId}`;
       case "Codechef":
-        return `https://www.codechef.com/users/${profileData.codechefId}`;
+        return `http://www.codechef.com/users/${profileData.codechefId}`;
       default:
-        return `https://auth.geeksforgeeks.org/user/${profileData.geeksforgeeksId}/profile`;
+        return `http://auth.geeksforgeeks.org/user/${profileData.geeksforgeeksId}/profile`;
     }
   };
 
@@ -172,7 +172,7 @@ const Home = () => {
                 <img src="/LinkedIn.png" alt="LinkedIn Logo" />
                 <a
                   className="linktocp"
-                  href={`https://www.linkedin.com/in/${profileData.linkedin}`}
+                  href={`http://www.linkedin.com/in/${profileData.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -183,7 +183,7 @@ const Home = () => {
                 <img src="/github.png" alt="GitHub Logo" />
                 <a
                   className="linktocp"
-                  href={`https://github.com/${profileData.github}`}
+                  href={`http://github.com/${profileData.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

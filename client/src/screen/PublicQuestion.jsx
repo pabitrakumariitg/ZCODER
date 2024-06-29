@@ -12,7 +12,7 @@ const PublicQuestion = () => {
     const fetchQuestionData = async () => {
       try {
         const response = await fetch(
-          `https://zcoder-api.vercel.app/getRecentQuestion/${id}`
+          `http://zcoder-api.vercel.app/getRecentQuestion/${id}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

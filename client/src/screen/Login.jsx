@@ -22,7 +22,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("https://zcoder-api.vercel.app/login", {
+      const response = await fetch("http://zcoder-api.vercel.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const Login = () => {
         alert("Login successful!");
 
         try {
-          const profileResponse = await fetch(`https://zcoder-api.vercel.app/${username}`);
+          const profileResponse = await fetch(`http://zcoder-api.vercel.app/${user.userName}`);
           
           if (profileResponse.ok) {
             const profileData = await profileResponse.json();

@@ -18,8 +18,7 @@ const app = express();
 const PORT = 8000;
 
 // MongoDB connection setup
-const mongoURI =
-  "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
+const mongoURI = "mongodb+srv://pabitraKumar:Pabitra@cluster0.bqxhvj3.mongodb.net/goFood?retryWrites=true&w=majority&appName=Cluster0";
 connectToMongoDB(mongoURI)
   .then(() => {
     console.log("MongoDB connected");
@@ -31,17 +30,18 @@ connectToMongoDB(mongoURI)
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
-app.use(cors({
-  origin: 'https://zcoder-client.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true  // to allow cookies from the client
-}));
+// Middleware to simulate getting the current username (for demonstration purposes)
+app.use((req, res, next) => {
+  req.currentUsername = "currentUsername"; // Replace with actual logic to get the username
+  next();
+});
 
 // Routes
 app.use("/signUp", SignUpRouter);
 app.use("/login", LoginRouter);
-app.use("/:userName/edit-profile", EditProfileRouter);
+app.use("/:username/edit-profile", EditProfileRouter);
 app.use("/home", GetProfileRouter);
 app.use("/", UploadedQuestionRouter);
 app.use("/getRecentQuestion", GetRecentQuestionRouter);
