@@ -30,7 +30,16 @@ connectToMongoDB(mongoURI)
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+
+// CORS Configuration
+const corsOptions = {
+  origin: 'http://zcoder-api.vercel.app', // Allow your front-end origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 // Middleware to simulate getting the current username (for demonstration purposes)
 app.use((req, res, next) => {
