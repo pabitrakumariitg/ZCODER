@@ -58,7 +58,7 @@ app.use((req, res, next) => {
 // Routes
 app.use("/signup", SignUpRouter);
 app.use("/login", LoginRouter);
-app.use("/username/explore", GetExploreRouter);
+app.use("/explore", GetExploreRouter);
 // app.use("/:username/edit-profile", EditProfileRouter);
 // app.use("/home", GetProfileRouter);
 // app.use("/", UploadedQuestionRouter);
