@@ -5,14 +5,14 @@ const { connectToMongoDB } = require("./connect");
 // Import routers
 const SignUpRouter = require("./routes/SignUp");
 const LoginRouter = require("./routes/Login");
-const UploadedQuestionRouter = require("./routes/UploadQuestion");
-const EditProfileRouter = require("./routes/EditProfile");
-const GetProfileRouter = require("./routes/Profile");
-const GetRecentQuestionRouter = require("./routes/FetchRecentQuestions");
-const GetMyStackRouter = require("./routes/MyStack");
-const UpdateQuestionRouter = require("./routes/UpdateQuestion");
-const GetExploreRouter = require("./routes/Explore");
-const CodeLiveRouter = require("./routes/CodeLive");
+// const UploadedQuestionRouter = require("./routes/UploadQuestion");
+// const EditProfileRouter = require("./routes/EditProfile");
+// const GetProfileRouter = require("./routes/Profile");
+// const GetRecentQuestionRouter = require("./routes/FetchRecentQuestions");
+// const GetMyStackRouter = require("./routes/MyStack");
+// const UpdateQuestionRouter = require("./routes/UpdateQuestion");
+// const GetExploreRouter = require("./routes/Explore");
+// const CodeLiveRouter = require("./routes/CodeLive");
 
 const app = express();
 const PORT = 8000;
