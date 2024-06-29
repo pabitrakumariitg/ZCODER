@@ -51,16 +51,16 @@ app.use((req, res, next) => {
 app.use("/",(req,res)=>{
   res.json({message:"HELLO"})
 })
-app.use("/signUp", SignUpRouter);
-app.use("/login", LoginRouter);
-app.use("/:username/edit-profile", EditProfileRouter);
-app.use("/home", GetProfileRouter);
-app.use("/", UploadedQuestionRouter);
-app.use("/getRecentQuestion", GetRecentQuestionRouter);
-app.use("/:username/mystack", GetMyStackRouter);
-app.use("/updateQuestion", UpdateQuestionRouter);
-app.use("/:username/explore", GetExploreRouter);
-app.use("/run-cpp", CodeLiveRouter);
+// app.use("/signUp", SignUpRouter);
+// app.use("/login", LoginRouter);
+// app.use("/:username/edit-profile", EditProfileRouter);
+// app.use("/home", GetProfileRouter);
+// app.use("/", UploadedQuestionRouter);
+// app.use("/getRecentQuestion", GetRecentQuestionRouter);
+// app.use("/:username/mystack", GetMyStackRouter);
+// app.use("/updateQuestion", UpdateQuestionRouter);
+// app.use("/:username/explore", GetExploreRouter);
+// app.use("/run-cpp", CodeLiveRouter);
 
 // Start the server
 app.listen(PORT, () => {
