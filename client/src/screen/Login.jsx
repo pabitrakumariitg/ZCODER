@@ -38,7 +38,7 @@ const Login = () => {
         alert("Login successful!");
 
         try {
-          const profileResponse = await fetch(`http://zcoder-api.vercel.app/${user.userName}`);
+          const profileResponse = await fetch(`https://zcoder-api.vercel.app/${user.userName}`);
           
           if (profileResponse.ok) {
             const profileData = await profileResponse.json();
